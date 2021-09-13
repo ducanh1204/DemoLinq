@@ -48,6 +48,7 @@ namespace DemoLinq
                 new Product(6, "Giường ngủ", 500, new string[] {"Trắng"},               2),
                 new Product(7, "Tủ áo",      600, new string[] {"Trắng"},               4),
                 new Product(7, "Tủ áo",      600, new string[] {"Trắng","Đen", "Vàng"},               3),
+                new Product(0, "Tủ áo",      600, new string[] {"Trắng","Đen", "Vàng"},               4),
             };
 
             // truy vấn điều kiện cơ bản
@@ -99,9 +100,9 @@ namespace DemoLinq
 
             // order by
             //var query = from p in products
-            //            orderby p.Price,p.Brand
+            //            orderby p.Price, p.Brand,p.ID
             //            select p;
-            var query = products.OrderBy(x => x.Price).OrderBy(x => x.Brand);
+            var query = products.OrderBy(x => x.Price).ThenBy(x => x.Brand).ThenBy(x=>x.ID);
 
             foreach (var item in query)
             {
