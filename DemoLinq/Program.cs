@@ -52,9 +52,9 @@ namespace DemoLinq
             };
 
             // truy vấn điều kiện cơ bản
-            //var query = from p in products
-            //            where p.Price == 400
-            //            select p;
+            var query = from p in products
+                        where (p.Price == 400 || p.Price == 600 )
+                        select p;
 
             // truy vấn tập hợp con 
             //var query = products.SelectMany(
@@ -102,7 +102,7 @@ namespace DemoLinq
             //var query = from p in products
             //            orderby p.Price, p.Brand,p.ID
             //            select p;
-            var query = products.OrderBy(x => x.Price).ThenBy(x => x.Brand).ThenBy(x=>x.ID);
+            //var query = products.OrderBy(x => x.Price).ThenBy(x => x.Brand).ThenBy(x=>x.ID);
 
             foreach (var item in query)
             {
